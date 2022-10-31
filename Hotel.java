@@ -33,3 +33,12 @@ public class Hotel {
    public int numberOfRooms() {
       return rooms.length;
    }
+   
+   /** provide the room corresponding to given number, first room has number 1, 
+    * number must not be greater than <code>this.numberOfRooms()</code>
+    * @param number number of the room, from 1 to this.numberOfRooms()
+    * @return the room with given number
+    */
+   public Room getRoom(int number) {
+      return this.rooms[number-1];
+   }
