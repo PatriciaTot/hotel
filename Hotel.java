@@ -55,3 +55,14 @@ public class Hotel {
       return getRoom(number);
    }
    
+   /** 
+    * leave a rented room
+    * @param number the number of the rented room if it's rented
+    */
+   public void leaveRoom(int number) {
+       if (this.getRoom(number).isRent()) {
+         this.getRoom(number).free() ;
+         
+       }
+   }
+   
