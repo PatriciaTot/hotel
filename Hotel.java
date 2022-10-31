@@ -18,3 +18,18 @@ public class Hotel {
             rooms[i] = new Room(i+1);
        }
    }
+   
+   public String getName() {
+      return this.name;
+   }
+   
+   public Status getStatus() {
+      return this.status;
+   }
+
+   /**  return the number of rooms for this hotel
+    * @return the number of rooms for this hotel
+    */
+   public int numberOfRooms() {
+      return rooms.length;
+   }
