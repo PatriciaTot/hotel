@@ -42,3 +42,16 @@ public class Hotel {
    public Room getRoom(int number) {
       return this.rooms[number-1];
    }
+   
+   /**  allows to rent a room in the hotel. 
+    * @param number the number of the room to rent
+    * @return rented room when possible, null if the requested room is already rented or if the room number is not valid
+    */
+   public Room rentRoom(int number) {
+      if( number < 1 || number > numberOfRooms() || getRoom(number).isRent()==true) {
+       return null;
+      }
+      getRoom(number).rent();
+      return getRoom(number);
+   }
+   
