@@ -48,11 +48,11 @@ public class Hotel {
     * @return rented room when possible, null if the requested room is already rented or if the room number is not valid
     */
    public Room rentRoom(int number) {
-      if( number < 1 || number > numberOfRooms() || getRoom(number).isRent()==true) {
-       return null;
+      if( number < 1 || number > numberOfRooms() || getRoom(number).isRent()) {
+         return null;
       }
       getRoom(number).rent();
-      return getRoom(number);
+         return getRoom(number);
    }
    
    /** 
@@ -61,8 +61,36 @@ public class Hotel {
     */
    public void leaveRoom(int number) {
        if (this.getRoom(number).isRent()) {
-         this.getRoom(number).free() ;
-         
+          this.getRoom(number).free() ;        
        }
    }
+   
+   /** 
+    * return the number of free rooms
+    * @return the number of free rooms
+    */
+   public int numberOfFreeRooms() {   
+      int count =0;
+      for(Room room : rooms) {
+         if(!room.isRent()) {
+            count++;
+         }
+      }
+      return count;
+    }
+   
+   /** 
+    * return the smallest number of free room or 0 if none of the rooms are free
+    * @return int the smallest number of free room or 0 if of the rooms are free
+    */
+   public int firstFreeNumber() {
+      for (Room room : rooms) {
+         if (!room.isRent()) {
+            return room.getNumber();
+         }
+      }
+      return 0;
+   }
+
+}
    
